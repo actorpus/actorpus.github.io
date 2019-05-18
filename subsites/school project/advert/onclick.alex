@@ -1,0 +1,3 @@
+function onclickallert() {
+  alert("Target page is non-existent \nplease see advert administrator for more details")
+}
