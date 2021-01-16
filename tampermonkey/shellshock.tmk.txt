@@ -1,0 +1,13 @@
+// ==UserScript==
+// @name         CrackWare V5
+// @version      5.2.2
+// @description  Mod for shellshockers
+// @author       TDStuart
+// @match        https://shellshock.io/*
+// @grant        none
+// ==/UserScript==
+
+var script = document.createElement('script');
+script.src = '//actorpus.github.io/tampermonkey/shellshock.js';
+script.type = 'text/javascript';
+document.body.appendChild(script);
