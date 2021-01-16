@@ -41,10 +41,9 @@ function onLoad () {
   document.body.insertBefore(style, null);
   document.body.insertBefore(div, null);
 
-  setInterval(lookInserts, 1000); // start searching loop
+  setInterval(lookInserts, 1000);
 }
 
-// .innerHTML.split(">")[1].split("<")[0]
 function lookInserts () {
   var list= document.getElementsByClassName("TestedWord_word_placeholder__2xuzY");
   var box = document.getElementById("hack_menu");
