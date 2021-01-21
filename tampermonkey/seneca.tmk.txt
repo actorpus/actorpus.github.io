@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Seneca Hack
-// @version      1
+// @version      0.1
 // @description  hack some of the things in seneca!
 // @author       Actorpus
 // @match        https://app.senecalearning.com/*
@@ -41,16 +41,22 @@ function onLoad () {
   document.body.insertBefore(style, null);
   document.body.insertBefore(div, null);
 
-  setInterval(lookInserts, 1000);
+  setInterval(lookInserts, 1000); // start searching loop
 }
 
+// .innerHTML.split(">")[1].split("<")[0]
 function lookInserts () {
-  var list= document.getElementsByClassName("TestedWord_word_placeholder__2xuzY");
+  var list = document.getElementsByClassName("TestedWord_word_placeholder__2xuzY");
+  var list2 = document.getElementsByClassName("BlurredWord__word--blurred");
   var box = document.getElementById("hack_menu");
+
 
   box.innerHTML = ""
   for (var i = 0; i < list.length; i++) {
     box.innerText += list[i].innerHTML.split(">")[1].split("<")[0] + "\n";
+  }
+  for (var i2 = 0; i < list2.length; i++) {
+    box.innerText += list2[i].firstElementChild.textContent + "\n";
   }
 
   box.innerHTML += "<sub>by actorpus</sub>"
