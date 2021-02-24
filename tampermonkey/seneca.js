@@ -1,12 +1,3 @@
-// ==UserScript==
-// @name         Seneca Hack
-// @version      0.1
-// @description  hack some of the things in seneca!
-// @author       Actorpus
-// @match        https://app.senecalearning.com/*
-// @grant        none
-// ==/UserScript==
-
 function onLoad () {
   var div = document.createElement("div");
   div.id = "hack_menu"
