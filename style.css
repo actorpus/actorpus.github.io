@@ -57,3 +57,8 @@ a:hover{
 .puzzle-overide li:hover {
   color: #c55;
 }
+svg {
+    display: block;
+    margin-left: 50%;
+    transform: translate(-207px, 100px);
+}
