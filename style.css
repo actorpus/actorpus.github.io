@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: url('bg.png') no-repeat center;
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+
+}
+.main {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.challenges {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    padding: 40px 40px 90px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+}
+a:link{
+  color: lightcoral;
+}
+a:visited{
+  color: coral;
+}
+a:hover{
+  color:orange;
+}
+.puzzle-overide {
+    background-color: white;
+    background-image: none;
+    margin: 20px 40px;
+}
+.puzzle-overide a2{
+  font-size: 10;
+  color: #333
+}
+.puzzle-overide a:hover{
+  color: #c55
+}
+.puzzle-overide a2:hover{
+  color: #c55
+}
+.puzzle-overide li{
+  margin: 5 50;
+}
+.puzzle-overide li:hover {
+  color: #c55;
+}
