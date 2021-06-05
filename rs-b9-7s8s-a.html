@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rs-b9-7s8s-a</title>
+    <style>
+        div {
+            background-color: rgb(255, 127, 0);
+            border-color: black;
+            border-radius: 10px;
+            border: 4px solid black;
+
+            margin: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+    <script>
+function calculate() {
+    var i = document.getElementById("i").value
+    var o = document.getElementById("o")
+    
+    if (!isNaN(i)) {
+        i = Number(i);
+        var n = "";
+        
+        while (i != 0) {
+            n = String(i % 9) + n
+            i = Math.floor(i / 9)
+        }
+        
+        n = n.replace("7", "s").replace("8", "7").replace("s", "8")
+        
+        o.text = n
+    }
+}
+    </script>
+</head>
+<body>
+    <div>
+        <input id="i" oninput="calculate();"><br>
+        <a id="o"> </a>
+    </div>
+</body>
+</html>
+
+<!-- data:text/html,<input id="i" oninput="var i=document.getElementById('i').value;if(!isNaN(i)){i=Number(i);var n='';while(i!=0){n=String(i%9)+n;i=Math.floor(i/9)};document.getElementById('o').text = n.replace('7', 's').replace('8', '7').replace('s', '8')};"><a id="o"></a> -->
