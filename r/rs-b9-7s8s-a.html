@@ -17,15 +17,25 @@ function calculate() {
         if (i == 0) {
             o.text = "1"
         }
+        
         else {
-            while (i != 0) {
-                n = String(i % 9) + n
-                i = Math.floor(i / 9)
+            while (i > 0) {
+                d = Math.floor(i % 9);
+                n = String(d) + n;
+                i = Math.floor(i / 9);
             }
             
-            n = String(Number(n) + 1)
-
-            n = n.replace("7", "s").replace("8", "7").replace("s", "8")
+            n = n.split("");
+            
+            
+            for(let i = 0; i < n.length; i++){
+                n[i] = String(Number(n[i]) + 1)
+            }
+                
+            
+            n = n.join("")
+            
+            n = n.replaceAll("7", "s").replaceAll("8", "7").replaceAll("s", "8")
 
             o.text = n
         }
