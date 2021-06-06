@@ -21,7 +21,7 @@ body {
     position: relative;
     width: 100%;
     max-width: 380px;
-    padding: 40px 40px 90px;
+    padding: 40px 40px 40px;
     background: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
     color: #fff;
@@ -61,4 +61,9 @@ svg {
     display: block;
     margin-left: 50%;
     transform: translate(-207px, 100px);
+}
+.center {
+    display: grid;
+    margin: auto;
+    justify-content: center;
 }

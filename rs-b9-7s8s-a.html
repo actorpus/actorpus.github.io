@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>base 9 number transformer</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        
+function calculate() {
+    var i = document.getElementById("i").value  // get contents of entry feild
+    var o = document.getElementById("o")  // link to output feild
+    
+    if (!isNaN(i) && Number(i) >= 0) {
+        i = Number(i);
+        var n = "";
+        
+        if (i == 0) {
+            o.text = "1"
+        }
+        else {
+            while (i != 0) {
+                n = String(i % 9) + n
+                i = Math.floor(i / 9)
+            }
+            
+            n = String(Number(n) + 1)
+
+            n = n.replace("7", "s").replace("8", "7").replace("s", "8")
+
+            o.text = n
+        }
+    }
+    else {
+        o.text = "'" + i + "' is not a valid input"
+    }
+}
+    </script>
+</head>
+<body>
+    <div class="main">
+        <div class="challenges" style="max-width: 400px;">
+            <h2>Numeric Reimagining</h2>
+            <a>
+            The number entered will be rebased to use base 9 (1, 2, 3, 4, 5, 6, 8, 7, 9).  Note the representations of 7 and 8 are swapped from standard Arabic numerals.
+            </a>
+            <div class="center">
+                <input id="i" oninput="calculate();"><br>
+                <a id="o"> </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- data:text/html,<input id="i" oninput="var i=document.getElementById('i').value;if(!isNaN(i)){i=Number(i);var n='';while(i!=0){n=String(i%9)+n;i=Math.floor(i/9)};document.getElementById('o').text = n.replace('7', 's').replace('8', '7').replace('s', '8')};"><a id="o"></a> -->
