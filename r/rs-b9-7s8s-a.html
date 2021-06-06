@@ -7,8 +7,8 @@
     <script>
         
 function calculate() {
-    var i = document.getElementById("i").value  // get contents of entry feild
-    var o = document.getElementById("o")  // link to output feild
+    var i = document.getElementById("i").value
+    var o = document.getElementById("o")
     
     if (!isNaN(i) && Number(i) >= 0) {
         i = Number(i);
@@ -51,5 +51,3 @@ function calculate() {
     </div>
 </body>
 </html>
-
-<!-- data:text/html,<input id="i" oninput="var i=document.getElementById('i').value;if(!isNaN(i)){i=Number(i);var n='';while(i!=0){n=String(i%9)+n;i=Math.floor(i/9)};document.getElementById('o').text = n.replace('7', 's').replace('8', '7').replace('s', '8')};"><a id="o"></a> -->
