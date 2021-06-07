@@ -9,40 +9,56 @@
 function calculate() {
     var i = document.getElementById("i").value
     var o = document.getElementById("o")
+    var b = document.getElementById("reverse")
     
     if (!isNaN(i) && Number(i) >= 0) {
-        i = Number(i);
-        var n = "";
-        
-        if (i == 0) {
-            o.text = "1"
-        }
-        
-        else {
-            while (i > 0) {
-                d = Math.floor(i % 9);
-                n = String(d) + n;
-                i = Math.floor(i / 9);
-            }
-            
-            n = n.split("");
-            
-            
-            for(let i = 0; i < n.length; i++){
-                n[i] = String(Number(n[i]) + 1)
-            }
-                
-            
-            n = n.join("")
-            
-            n = n.replaceAll("7", "s").replaceAll("8", "7").replaceAll("s", "8")
+        if (!b.checked) {
+            i = Number(i);
+            var n = "";
 
-            o.text = n
+            if (i == 0) {
+                o.text = "1"
+            }
+
+            else {
+                while (i > 0) {
+                    d = Math.floor(i % 9);
+                    n = String(d) + n;
+                    i = Math.floor(i / 9);
+                }
+
+                n = n.split("");
+
+
+                for(let i = 0; i < n.length; i++){
+                    n[i] = String(Number(n[i]) + 1)
+                }
+
+
+                n = n.join("")
+
+                n = n.replaceAll("7", "s").replaceAll("8", "7").replaceAll("s", "8")
+
+                o.text = n
+            }
+        }      
+        else {
+            n = i.replaceAll("7", "s").replaceAll("8", "7").replaceAll("s", "8")
+            i = 0
+
+            n = n.split("").reverse().join("")
+
+            for (number = 0; number < n.length; number++) {
+              i += (Number(n[number]) - 1) * (9 ** number)
+            }
+
+            o.text = String(i)
         }
     }
     else {
         o.text = "'" + i + "' is not a valid input"
     }
+    
 }
     </script>
 </head>
@@ -51,8 +67,10 @@ function calculate() {
         <div class="challenges" style="max-width: 400px;">
             <h2>Numeric Reimagining</h2>
             <a>
-            The number entered will be rebased to use base 9 (1, 2, 3, 4, 5, 6, 8, 7, 9).  Note the representations of 7 and 8 are swapped from standard Arabic numerals.
+            The number entered will be rebased to use base 9 (1, 2, 3, 4, 5, 6, 8, 7, 9).  Note the representations of 7 and 8 are swapped from standard Arabic numerals.  
             </a>
+            <a>reverse:</a>
+            <input type="checkbox" id="reverse" name="reverse" value="reverse" onchange="calculate();">
             <div class="center">
                 <input id="i" oninput="calculate();"><br>
                 <a id="o"> </a>
