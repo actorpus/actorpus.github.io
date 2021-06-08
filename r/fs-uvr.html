@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Uv reading demo</title>
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        table, th, td {
+          border: 2px solid black;
+          padding: 4px;
+        }
+    </style>
+    
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {  
+        $.ajax({
+            url: "https://weather-broker-cdn.api.bbci.co.uk/en/forecast/rss/3day/2649051",
+            type: "GET",
+            headers: {
+                "Accept": "application/rss+xml",
+            },
+            dataType:"xml",
+            success: function (data){
+                $(data).find("item").each(function () {   
+                    const table = document.getElementById("table");
+                    
+                    var description = $(this).find("description").text();
+                    var UV = -1;
+                    
+                    description = description.split(", ");
+                    
+                    for (i = 0; i < description.length; i++) {
+                      if (description[i].includes("UV Risk")) {
+                        UV = Number(description[i].split(": ")[1]);
+                      };
+                    };
+                    
+                    
+                    row = table.insertRow();
+                    row.insertCell().appendChild(
+                      document.createTextNode($(this).find("title").text().split(":")[0])
+                    )
+                    row.insertCell().appendChild(
+                      document.createTextNode(UV)
+                    )
+//                    if (UV != -1) {
+//                        description = "<a>" + $(this).find("title").text().split(":")[0] + ": " + UV+ "</a><br/>";
+//                    }
+//                    else {
+//                        description = "<a>UNAVAILIBLE</a>";
+//                    }
+//                    
+//                    
+//                    
+//                    $("#showListRSSFeed").append(description);
+                });
+            }
+        }); 
+    })
+    </script>
+</head>
+<body>
+    <div class="main">
+        <div class="challenges" style="max-width: 400px;">
+            <h2>Uv reading demo</h2>
+            <br>
+            <table id="table">
+                <tr>
+                    <th>Day</th>
+                    <th>UV rating</th> 
+                  </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
