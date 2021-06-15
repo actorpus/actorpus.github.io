@@ -1528,7 +1528,7 @@
                   </table>
                   
                   <!-- BEGIN ADDON -->  
-                  <!-- wtf is this code? why does everything have a style tag-->
+                  <!-- wtf is this code? why does everything have a style tag -->
                   
                   <br><hr>
                   <script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
@@ -1537,6 +1537,8 @@
                   const no_alet = "#f5f5f5";
                   const small_alert = "#f5efef";
                   const large_alert = "#f5e5e5";
+                      
+                  const style = "width: 33.3333%; vertical-align: middle; text-align: center; color: #094d92; background-color: "
                       
                   $(document).ready(function () {  
                       $.ajax({
@@ -1551,48 +1553,79 @@
                               
                               day_row = table.insertRow();
                               uv_row = table.insertRow();
+                              var index = 1;
                               
-                              $(data).find("item").each(function () {     
-                                  var description = $(this).find("description").text();
-                                  var UV = "Unavailbable";
-  
-                                  description = description.split(", ");
-  
-                                  for (i = 0; i < description.length; i++) {
+                              $(data).find("item").each(function () {
+                                var description = $(this).find("description").text();
+                                var UV = "Unavailbable";
+                                var day = $(this).find("title").text().split(":")[0];
+                                
+                                description = description.split(", ");
+                                
+                                for (i = 0; i < description.length; i++) {
                                     if (description[i].includes("UV Risk")) {
                                       UV = Number(description[i].split(": ")[1]);
                                     };
                                   };
-  
+                      
+                                console.log(day + ": " + UV);
+                                
+                                document.getElementById("UVTableKey" + String(index)).textContent = day
+                                cell = document.getElementById("UVTableValue" + String(index))
                                   
-                                  cell = day_row.insertCell()
-                                  cell.style = "width: 33.3333%; vertical-align: middle; text-align: center; background-color: #f5f5f5; color: #094d92;"
-                                  cell.appendChild(
-                                    document.createTextNode($(this).find("title").text().split(":")[0])
-                                  )
+                                if (UV < 4) {
+                                    cell.style = style + no_alet + ";";
+                                }
+                                else if (UV < 7) {
+                                    cell.style = style + small_alert + ";";
+                                    cell.children[1].removeAttribute("hidden"); 
+                                }
+                                else {
+                                    cell.style = style + large_alert + ";";
+                                    cell.children[2].removeAttribute("hidden"); 
+                                }
                                   
-                                  cell = uv_row.insertCell()
-                                  
-                                  if (UV < 4) {
-                                    cell.style = "width: 33.3333%; vertical-align: middle; text-align: center; color: #094d92; background-color: " + no_alet + ";";
-                                  }
-                                  else if (UV < 7) {
-                                    cell.style = "width: 33.3333%; vertical-align: middle; text-align: center; color: #094d92; background-color: " + small_alert + ";";
-                                  }
-                                  else {
-                                      cell.style = "width: 33.3333%; vertical-align: middle; text-align: center; color: #094d92; background-color: " + large_alert + ";";
-                                  }
-                                  
-                                  cell.appendChild(
-                                    document.createTextNode(UV)
-                                  )
+                                cell.children[0].textContent = UV
+                                
+                                index++
                               });
                           }
                       }); 
                   })
                   </script>
                   <h2 style="text-align: center;">UV Level</h2>
-                  <table style="width: 100%; border-collapse: collapse; border-color: #094d92; border-style: solid; background-color: #f5f5f5;" border="1" id="UVtable"></table>
+                  <table style="width: 100%; border-collapse: collapse; border-color: #094d92; border-style: solid; background-color: #f5f5f5;" id="UVtable" border="1">
+                      <tbody>
+                          <tr>
+                              <td style="width: 33.3333%; vertical-align: middle; text-align: center; background-color: rgb(245, 245, 245); color: rgb(9, 77, 146);" id="UVTableKey1">
+                                  <span style="color: #094d92;">Unavailbable</span>
+                              </td>
+                              <td style="width: 33.3333%; vertical-align: middle; text-align: center; background-color: rgb(245, 245, 245); color: rgb(9, 77, 146);" id="UVTableKey2">
+                                  <span style="color: #094d92;">Unavailbable</span>
+                              </td>
+                              <td style="width: 33.3333%; vertical-align: middle; text-align: center; background-color: rgb(245, 245, 245); color: rgb(9, 77, 146);" id="UVTableKey3">
+                                  <span style="color: #094d92;">Unavailbable</span>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td style="width: 33.3333%; vertical-align: middle; text-align: center; color: rgb(9, 77, 146); background-color: rgb(245, 245, 245);" id="UVTableValue1">
+                                  <span style="color: #094d92;">Unavailbable</span>
+                                  <svg height="16" viewBox="0 0 59 45" width="16" xmlns="http://www.w3.org/2000/svg" hidden><g id="008---Cap" fill="none" transform="translate(-1)"><path id="Shape" d="m48 33.9c-.34.49-6.3 9-17 10-11 1-8.5-4.44-19.5-6-5.3-.75-8.11.15-9.13.81-.38531697.2514683-.89878985.1677818-1.18431788-.1930218-.28552802-.3608036-.24897116-.8797655.08431788-1.1969782 2-1.88 6.87-4.95 11.73-8.42l21-7.9z" fill="#464f5d"/><path id="Shape" d="m42 4.63c0-.48.1-.86.1-1.07 0-3.2-5.64-3.59-6-.31l-.09.84z" fill="#2c3e50"/><path id="Shape" d="m59.16 26.11c0 9.82-1.91 8.48-7.46 8-7-.61-6.71.5-25.7-4.25-4-1-9.63-1.68-13-1 0 0 .76-9.45 5.38-16.06 6.23-8.92 20.62-8.92 20.62-8.92 3.8739121.66537162 7.5721297 2.11131688 10.87 4.25 6.31 4.11 9.29 10.43 9.29 17.98z" fill="#33907c"/><path id="Shape" d="m39 3.88c-14.07 2.5-16.56 21.12-16.94 25.21-2.9891478-.5558807-6.0483069-.6267884-9.06-.21 0 0 .76-9.45 5.38-16.06 6.23-8.94 20.62-8.94 20.62-8.94z" fill="#26b99a"/><path id="Shape" d="m43 33.51c-8.17-1-16-3.69-20.95-4.42.39-4.09 2.88-22.71 16.95-25.21 11 5.69 5 26.37 4 29.63z" fill="#14a085"/></g></svg>
+                                  <svg height="16" viewBox="0 0 64 64" width="16" xmlns="http://www.w3.org/2000/svg" hidden><g id="Twotone"><g id="Color_copy" data-name="Color copy"><g><g><path d="m41 7h6v6h-6z" fill="#79bd9a"/><path d="m39 13h12v6h-12z" fill="#a8dba8"/><path d="m37 3h18a4 4 0 0 1 4 4 0 0 0 0 1 0 0h-22a0 0 0 0 1 0 0v-4a0 0 0 0 1 0 0z" fill="#a8dba8"/><g fill="#cff09e"><circle cx="45" cy="39" r="4"/><path d="m60 16a2 2 0 0 1 -2-2 7.561 7.561 0 0 1 .856-2.977c-1.037.234-1.856 2.921-1.856 3.977a2 2 0 0 0 3.82.82 1.99 1.99 0 0 1 -.82.18z"/><path d="m55 55a16 16 0 0 1 -16-16v-20h-2a3.983 3.983 0 0 0 -3.192 1.612l4.864 1.3-5.672 14.249v20.839a4 4 0 0 0 4 4h16a4 4 0 0 0 4-4v-2z"/></g></g><g><path d="m9.28 51.256h14a2 2 0 0 1 2 2v6a0 0 0 0 1 0 0h-18a0 0 0 0 1 0 0v-6a2 2 0 0 1 2-2z" fill="#a8dba8" transform="matrix(-.966 -.259 .259 -.966 17.703 112.843)"/><path d="m13.632 14.619h26a0 0 0 0 1 0 0v2a2 2 0 0 1 -2 2h-22a2 2 0 0 1 -2-2v-2a0 0 0 0 1 0 0z" fill="#a8dba8" transform="matrix(-.966 -.259 .259 -.966 48.056 39.565)"/><g fill="#cff09e"><circle cx="21.715" cy="34.971" r="3"/><path d="m16.794 30.654 2.048-14.054-5.284-1.416-4.936 33.879 17.386 4.659 1.562-3.922a17.99 17.99 0 0 1 -10.776-19.146z"/></g></g></g></g><g id="Stroke_Closed_copy" data-name="Stroke Closed copy"><g fill="#3b8686"><path d="m17.851 33.937a4 4 0 1 0 4.9-2.83 4 4 0 0 0 -4.9 2.83zm1.932.517a2 2 0 1 1 1.417 2.446 2.007 2.007 0 0 1 -1.417-2.446z"/><path d="m20.162 40.767a1 1 0 1 0 .707 1.225 1 1 0 0 0 -.707-1.225z"/><path d="m23.268 29.176a1 1 0 1 0 -.707-1.225 1 1 0 0 0 .707 1.225z"/><path d="m27.51 36.524a1 1 0 1 0 1.225-.707 1 1 0 0 0 -1.225.707z"/><path d="m13.987 32.9a1 1 0 1 0 1.225-.707 1 1 0 0 0 -1.225.707z"/><circle cx="15.653" cy="38.471" r="1" transform="matrix(.259 -.966 .966 .259 -25.559 43.634)"/><path d="m28.277 32.337a1 1 0 1 0 -1.366-.366 1 1 0 0 0 1.366.366z"/><path d="m24.715 40.168a1 1 0 1 0 1.366.366 1 1 0 0 0 -1.366-.366z"/><path d="m18.715 29.775a1 1 0 1 0 -1.366-.366 1 1 0 0 0 1.366.366z"/><path d="m45 34a5 5 0 1 0 5 5 5.006 5.006 0 0 0 -5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1 -3 3z"/><circle cx="41" cy="45.928" r="1" transform="matrix(.966 -.259 .259 .966 -10.49 12.177)"/><path d="m48.5 32.938a1 1 0 1 0 -.366-1.366 1 1 0 0 0 .366 1.366z"/><path d="m37.572 42.134a1 1 0 1 0 1.366.366 1 1 0 0 0 -1.366-.366z"/><path d="m52.428 35.866a1 1 0 1 0 -1.366-.366 1 1 0 0 0 1.366.366z"/><circle cx="37" cy="39" r="1"/><circle cx="53" cy="39" r="1"/><path d="m38.572 34.134a1 1 0 1 0 .366 1.366 1 1 0 0 0 -.366-1.366z"/><path d="m52.428 42.134a1 1 0 1 0 .366 1.366 1 1 0 0 0 -.366-1.366z"/><path d="m41.5 32.938a1 1 0 1 0 -1.366-.366 1 1 0 0 0 1.366.366z"/><circle cx="49" cy="45.928" r="1" transform="matrix(.259 -.966 .966 .259 -8.045 81.371)"/><circle cx="45" cy="31" r="1"/><circle cx="45" cy="47" r="1"/><path d="m59 10c-2.065 0-3 3.836-3 5a3 3 0 0 0 6 0c0-1.164-.935-5-3-5zm0 6a1 1 0 0 1 -1-1 6.192 6.192 0 0 1 1-2.915 6.192 6.192 0 0 1 1 2.915 1 1 0 0 1 -1 1z"/><path d="m53 18h-1v-5a1 1 0 0 0 -1-1h-3v-4h11a1 1 0 0 0 1-1 5.006 5.006 0 0 0 -5-5h-18a1 1 0 0 0 -1 1v4a1 1 0 0 0 1 1h3v4h-1a1 1 0 0 0 -1 1v3.559l-21.216-5.685a3 3 0 0 0 -3.675 2.126l-.517 1.933c-.006.02 0 .04 0 .06s-.017.035-.02.054l-4.932 33.816-1.54 5.737a3 3 0 0 0 2.122 3.673l13.526 3.627a2.953 2.953 0 0 0 .774.1 3.006 3.006 0 0 0 2.9-2.224l1.537-5.736 5.041-12.663v15.623a5.006 5.006 0 0 0 5 5h16a5.006 5.006 0 0 0 5-5v-34a5.006 5.006 0 0 0 -5-5zm-15-14h17a3.006 3.006 0 0 1 2.829 2h-19.829zm4 4h4v4h-4zm-2 6h10v4h-10zm-2.673 8.59-11.919 29.935-7.834-2.1-7.835-2.1 4.646-31.884 11.471 3.074zm-21.061-9.784 21.25 5.694a1 1 0 0 1 .708 1.225l-.259.965-23.183-6.211.259-.966a1 1 0 0 1 1.225-.707zm7.223 46.453a1 1 0 0 1 -1.224.707l-13.523-3.624a1 1 0 0 1 -.706-1.225l1.294-4.83 15.455 4.142zm32.511-2.259a3 3 0 0 1 -3 3h-16a3 3 0 0 1 -3-3v-20.647l5.6-14.068c.006-.016 0-.033.008-.049s.023-.039.029-.062l.517-1.932c.022-.081.025-.161.04-.242h12.806a3 3 0 0 1 3 3z"/></g></g></g></svg>
+                              </td>
+                              <td style="width: 33.3333%; vertical-align: middle; text-align: center; color: rgb(9, 77, 146); background-color: rgb(245, 245, 245);" id="UVTableValue2">
+                                  <span style="color: #094d92;">Unavailbable</span>
+                                  <svg height="16" viewBox="0 0 59 45" width="16" xmlns="http://www.w3.org/2000/svg" hidden><g id="008---Cap" fill="none" transform="translate(-1)"><path id="Shape" d="m48 33.9c-.34.49-6.3 9-17 10-11 1-8.5-4.44-19.5-6-5.3-.75-8.11.15-9.13.81-.38531697.2514683-.89878985.1677818-1.18431788-.1930218-.28552802-.3608036-.24897116-.8797655.08431788-1.1969782 2-1.88 6.87-4.95 11.73-8.42l21-7.9z" fill="#464f5d"/><path id="Shape" d="m42 4.63c0-.48.1-.86.1-1.07 0-3.2-5.64-3.59-6-.31l-.09.84z" fill="#2c3e50"/><path id="Shape" d="m59.16 26.11c0 9.82-1.91 8.48-7.46 8-7-.61-6.71.5-25.7-4.25-4-1-9.63-1.68-13-1 0 0 .76-9.45 5.38-16.06 6.23-8.92 20.62-8.92 20.62-8.92 3.8739121.66537162 7.5721297 2.11131688 10.87 4.25 6.31 4.11 9.29 10.43 9.29 17.98z" fill="#33907c"/><path id="Shape" d="m39 3.88c-14.07 2.5-16.56 21.12-16.94 25.21-2.9891478-.5558807-6.0483069-.6267884-9.06-.21 0 0 .76-9.45 5.38-16.06 6.23-8.94 20.62-8.94 20.62-8.94z" fill="#26b99a"/><path id="Shape" d="m43 33.51c-8.17-1-16-3.69-20.95-4.42.39-4.09 2.88-22.71 16.95-25.21 11 5.69 5 26.37 4 29.63z" fill="#14a085"/></g></svg>
+                                  <svg height="16" viewBox="0 0 64 64" width="16" xmlns="http://www.w3.org/2000/svg" hidden><g id="Twotone"><g id="Color_copy" data-name="Color copy"><g><g><path d="m41 7h6v6h-6z" fill="#79bd9a"/><path d="m39 13h12v6h-12z" fill="#a8dba8"/><path d="m37 3h18a4 4 0 0 1 4 4 0 0 0 0 1 0 0h-22a0 0 0 0 1 0 0v-4a0 0 0 0 1 0 0z" fill="#a8dba8"/><g fill="#cff09e"><circle cx="45" cy="39" r="4"/><path d="m60 16a2 2 0 0 1 -2-2 7.561 7.561 0 0 1 .856-2.977c-1.037.234-1.856 2.921-1.856 3.977a2 2 0 0 0 3.82.82 1.99 1.99 0 0 1 -.82.18z"/><path d="m55 55a16 16 0 0 1 -16-16v-20h-2a3.983 3.983 0 0 0 -3.192 1.612l4.864 1.3-5.672 14.249v20.839a4 4 0 0 0 4 4h16a4 4 0 0 0 4-4v-2z"/></g></g><g><path d="m9.28 51.256h14a2 2 0 0 1 2 2v6a0 0 0 0 1 0 0h-18a0 0 0 0 1 0 0v-6a2 2 0 0 1 2-2z" fill="#a8dba8" transform="matrix(-.966 -.259 .259 -.966 17.703 112.843)"/><path d="m13.632 14.619h26a0 0 0 0 1 0 0v2a2 2 0 0 1 -2 2h-22a2 2 0 0 1 -2-2v-2a0 0 0 0 1 0 0z" fill="#a8dba8" transform="matrix(-.966 -.259 .259 -.966 48.056 39.565)"/><g fill="#cff09e"><circle cx="21.715" cy="34.971" r="3"/><path d="m16.794 30.654 2.048-14.054-5.284-1.416-4.936 33.879 17.386 4.659 1.562-3.922a17.99 17.99 0 0 1 -10.776-19.146z"/></g></g></g></g><g id="Stroke_Closed_copy" data-name="Stroke Closed copy"><g fill="#3b8686"><path d="m17.851 33.937a4 4 0 1 0 4.9-2.83 4 4 0 0 0 -4.9 2.83zm1.932.517a2 2 0 1 1 1.417 2.446 2.007 2.007 0 0 1 -1.417-2.446z"/><path d="m20.162 40.767a1 1 0 1 0 .707 1.225 1 1 0 0 0 -.707-1.225z"/><path d="m23.268 29.176a1 1 0 1 0 -.707-1.225 1 1 0 0 0 .707 1.225z"/><path d="m27.51 36.524a1 1 0 1 0 1.225-.707 1 1 0 0 0 -1.225.707z"/><path d="m13.987 32.9a1 1 0 1 0 1.225-.707 1 1 0 0 0 -1.225.707z"/><circle cx="15.653" cy="38.471" r="1" transform="matrix(.259 -.966 .966 .259 -25.559 43.634)"/><path d="m28.277 32.337a1 1 0 1 0 -1.366-.366 1 1 0 0 0 1.366.366z"/><path d="m24.715 40.168a1 1 0 1 0 1.366.366 1 1 0 0 0 -1.366-.366z"/><path d="m18.715 29.775a1 1 0 1 0 -1.366-.366 1 1 0 0 0 1.366.366z"/><path d="m45 34a5 5 0 1 0 5 5 5.006 5.006 0 0 0 -5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1 -3 3z"/><circle cx="41" cy="45.928" r="1" transform="matrix(.966 -.259 .259 .966 -10.49 12.177)"/><path d="m48.5 32.938a1 1 0 1 0 -.366-1.366 1 1 0 0 0 .366 1.366z"/><path d="m37.572 42.134a1 1 0 1 0 1.366.366 1 1 0 0 0 -1.366-.366z"/><path d="m52.428 35.866a1 1 0 1 0 -1.366-.366 1 1 0 0 0 1.366.366z"/><circle cx="37" cy="39" r="1"/><circle cx="53" cy="39" r="1"/><path d="m38.572 34.134a1 1 0 1 0 .366 1.366 1 1 0 0 0 -.366-1.366z"/><path d="m52.428 42.134a1 1 0 1 0 .366 1.366 1 1 0 0 0 -.366-1.366z"/><path d="m41.5 32.938a1 1 0 1 0 -1.366-.366 1 1 0 0 0 1.366.366z"/><circle cx="49" cy="45.928" r="1" transform="matrix(.259 -.966 .966 .259 -8.045 81.371)"/><circle cx="45" cy="31" r="1"/><circle cx="45" cy="47" r="1"/><path d="m59 10c-2.065 0-3 3.836-3 5a3 3 0 0 0 6 0c0-1.164-.935-5-3-5zm0 6a1 1 0 0 1 -1-1 6.192 6.192 0 0 1 1-2.915 6.192 6.192 0 0 1 1 2.915 1 1 0 0 1 -1 1z"/><path d="m53 18h-1v-5a1 1 0 0 0 -1-1h-3v-4h11a1 1 0 0 0 1-1 5.006 5.006 0 0 0 -5-5h-18a1 1 0 0 0 -1 1v4a1 1 0 0 0 1 1h3v4h-1a1 1 0 0 0 -1 1v3.559l-21.216-5.685a3 3 0 0 0 -3.675 2.126l-.517 1.933c-.006.02 0 .04 0 .06s-.017.035-.02.054l-4.932 33.816-1.54 5.737a3 3 0 0 0 2.122 3.673l13.526 3.627a2.953 2.953 0 0 0 .774.1 3.006 3.006 0 0 0 2.9-2.224l1.537-5.736 5.041-12.663v15.623a5.006 5.006 0 0 0 5 5h16a5.006 5.006 0 0 0 5-5v-34a5.006 5.006 0 0 0 -5-5zm-15-14h17a3.006 3.006 0 0 1 2.829 2h-19.829zm4 4h4v4h-4zm-2 6h10v4h-10zm-2.673 8.59-11.919 29.935-7.834-2.1-7.835-2.1 4.646-31.884 11.471 3.074zm-21.061-9.784 21.25 5.694a1 1 0 0 1 .708 1.225l-.259.965-23.183-6.211.259-.966a1 1 0 0 1 1.225-.707zm7.223 46.453a1 1 0 0 1 -1.224.707l-13.523-3.624a1 1 0 0 1 -.706-1.225l1.294-4.83 15.455 4.142zm32.511-2.259a3 3 0 0 1 -3 3h-16a3 3 0 0 1 -3-3v-20.647l5.6-14.068c.006-.016 0-.033.008-.049s.023-.039.029-.062l.517-1.932c.022-.081.025-.161.04-.242h12.806a3 3 0 0 1 3 3z"/></g></g></g></svg>
+                              </td>
+                              <td style="width: 33.3333%; vertical-align: middle; text-align: center; color: rgb(9, 77, 146); background-color: rgb(245, 245, 245);" id="UVTableValue3">
+                                  <span style="color: #094d92;">Unavailbable</span>
+                                  <svg height="16" viewBox="0 0 59 45" width="16" xmlns="http://www.w3.org/2000/svg" hidden><g id="008---Cap" fill="none" transform="translate(-1)"><path id="Shape" d="m48 33.9c-.34.49-6.3 9-17 10-11 1-8.5-4.44-19.5-6-5.3-.75-8.11.15-9.13.81-.38531697.2514683-.89878985.1677818-1.18431788-.1930218-.28552802-.3608036-.24897116-.8797655.08431788-1.1969782 2-1.88 6.87-4.95 11.73-8.42l21-7.9z" fill="#464f5d"/><path id="Shape" d="m42 4.63c0-.48.1-.86.1-1.07 0-3.2-5.64-3.59-6-.31l-.09.84z" fill="#2c3e50"/><path id="Shape" d="m59.16 26.11c0 9.82-1.91 8.48-7.46 8-7-.61-6.71.5-25.7-4.25-4-1-9.63-1.68-13-1 0 0 .76-9.45 5.38-16.06 6.23-8.92 20.62-8.92 20.62-8.92 3.8739121.66537162 7.5721297 2.11131688 10.87 4.25 6.31 4.11 9.29 10.43 9.29 17.98z" fill="#33907c"/><path id="Shape" d="m39 3.88c-14.07 2.5-16.56 21.12-16.94 25.21-2.9891478-.5558807-6.0483069-.6267884-9.06-.21 0 0 .76-9.45 5.38-16.06 6.23-8.94 20.62-8.94 20.62-8.94z" fill="#26b99a"/><path id="Shape" d="m43 33.51c-8.17-1-16-3.69-20.95-4.42.39-4.09 2.88-22.71 16.95-25.21 11 5.69 5 26.37 4 29.63z" fill="#14a085"/></g></svg>
+                                  <svg height="16" viewBox="0 0 64 64" width="16" xmlns="http://www.w3.org/2000/svg" hidden><g id="Twotone"><g id="Color_copy" data-name="Color copy"><g><g><path d="m41 7h6v6h-6z" fill="#79bd9a"/><path d="m39 13h12v6h-12z" fill="#a8dba8"/><path d="m37 3h18a4 4 0 0 1 4 4 0 0 0 0 1 0 0h-22a0 0 0 0 1 0 0v-4a0 0 0 0 1 0 0z" fill="#a8dba8"/><g fill="#cff09e"><circle cx="45" cy="39" r="4"/><path d="m60 16a2 2 0 0 1 -2-2 7.561 7.561 0 0 1 .856-2.977c-1.037.234-1.856 2.921-1.856 3.977a2 2 0 0 0 3.82.82 1.99 1.99 0 0 1 -.82.18z"/><path d="m55 55a16 16 0 0 1 -16-16v-20h-2a3.983 3.983 0 0 0 -3.192 1.612l4.864 1.3-5.672 14.249v20.839a4 4 0 0 0 4 4h16a4 4 0 0 0 4-4v-2z"/></g></g><g><path d="m9.28 51.256h14a2 2 0 0 1 2 2v6a0 0 0 0 1 0 0h-18a0 0 0 0 1 0 0v-6a2 2 0 0 1 2-2z" fill="#a8dba8" transform="matrix(-.966 -.259 .259 -.966 17.703 112.843)"/><path d="m13.632 14.619h26a0 0 0 0 1 0 0v2a2 2 0 0 1 -2 2h-22a2 2 0 0 1 -2-2v-2a0 0 0 0 1 0 0z" fill="#a8dba8" transform="matrix(-.966 -.259 .259 -.966 48.056 39.565)"/><g fill="#cff09e"><circle cx="21.715" cy="34.971" r="3"/><path d="m16.794 30.654 2.048-14.054-5.284-1.416-4.936 33.879 17.386 4.659 1.562-3.922a17.99 17.99 0 0 1 -10.776-19.146z"/></g></g></g></g><g id="Stroke_Closed_copy" data-name="Stroke Closed copy"><g fill="#3b8686"><path d="m17.851 33.937a4 4 0 1 0 4.9-2.83 4 4 0 0 0 -4.9 2.83zm1.932.517a2 2 0 1 1 1.417 2.446 2.007 2.007 0 0 1 -1.417-2.446z"/><path d="m20.162 40.767a1 1 0 1 0 .707 1.225 1 1 0 0 0 -.707-1.225z"/><path d="m23.268 29.176a1 1 0 1 0 -.707-1.225 1 1 0 0 0 .707 1.225z"/><path d="m27.51 36.524a1 1 0 1 0 1.225-.707 1 1 0 0 0 -1.225.707z"/><path d="m13.987 32.9a1 1 0 1 0 1.225-.707 1 1 0 0 0 -1.225.707z"/><circle cx="15.653" cy="38.471" r="1" transform="matrix(.259 -.966 .966 .259 -25.559 43.634)"/><path d="m28.277 32.337a1 1 0 1 0 -1.366-.366 1 1 0 0 0 1.366.366z"/><path d="m24.715 40.168a1 1 0 1 0 1.366.366 1 1 0 0 0 -1.366-.366z"/><path d="m18.715 29.775a1 1 0 1 0 -1.366-.366 1 1 0 0 0 1.366.366z"/><path d="m45 34a5 5 0 1 0 5 5 5.006 5.006 0 0 0 -5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1 -3 3z"/><circle cx="41" cy="45.928" r="1" transform="matrix(.966 -.259 .259 .966 -10.49 12.177)"/><path d="m48.5 32.938a1 1 0 1 0 -.366-1.366 1 1 0 0 0 .366 1.366z"/><path d="m37.572 42.134a1 1 0 1 0 1.366.366 1 1 0 0 0 -1.366-.366z"/><path d="m52.428 35.866a1 1 0 1 0 -1.366-.366 1 1 0 0 0 1.366.366z"/><circle cx="37" cy="39" r="1"/><circle cx="53" cy="39" r="1"/><path d="m38.572 34.134a1 1 0 1 0 .366 1.366 1 1 0 0 0 -.366-1.366z"/><path d="m52.428 42.134a1 1 0 1 0 .366 1.366 1 1 0 0 0 -.366-1.366z"/><path d="m41.5 32.938a1 1 0 1 0 -1.366-.366 1 1 0 0 0 1.366.366z"/><circle cx="49" cy="45.928" r="1" transform="matrix(.259 -.966 .966 .259 -8.045 81.371)"/><circle cx="45" cy="31" r="1"/><circle cx="45" cy="47" r="1"/><path d="m59 10c-2.065 0-3 3.836-3 5a3 3 0 0 0 6 0c0-1.164-.935-5-3-5zm0 6a1 1 0 0 1 -1-1 6.192 6.192 0 0 1 1-2.915 6.192 6.192 0 0 1 1 2.915 1 1 0 0 1 -1 1z"/><path d="m53 18h-1v-5a1 1 0 0 0 -1-1h-3v-4h11a1 1 0 0 0 1-1 5.006 5.006 0 0 0 -5-5h-18a1 1 0 0 0 -1 1v4a1 1 0 0 0 1 1h3v4h-1a1 1 0 0 0 -1 1v3.559l-21.216-5.685a3 3 0 0 0 -3.675 2.126l-.517 1.933c-.006.02 0 .04 0 .06s-.017.035-.02.054l-4.932 33.816-1.54 5.737a3 3 0 0 0 2.122 3.673l13.526 3.627a2.953 2.953 0 0 0 .774.1 3.006 3.006 0 0 0 2.9-2.224l1.537-5.736 5.041-12.663v15.623a5.006 5.006 0 0 0 5 5h16a5.006 5.006 0 0 0 5-5v-34a5.006 5.006 0 0 0 -5-5zm-15-14h17a3.006 3.006 0 0 1 2.829 2h-19.829zm4 4h4v4h-4zm-2 6h10v4h-10zm-2.673 8.59-11.919 29.935-7.834-2.1-7.835-2.1 4.646-31.884 11.471 3.074zm-21.061-9.784 21.25 5.694a1 1 0 0 1 .708 1.225l-.259.965-23.183-6.211.259-.966a1 1 0 0 1 1.225-.707zm7.223 46.453a1 1 0 0 1 -1.224.707l-13.523-3.624a1 1 0 0 1 -.706-1.225l1.294-4.83 15.455 4.142zm32.511-2.259a3 3 0 0 1 -3 3h-16a3 3 0 0 1 -3-3v-20.647l5.6-14.068c.006-.016 0-.033.008-.049s.023-.039.029-.062l.517-1.932c.022-.081.025-.161.04-.242h12.806a3 3 0 0 1 3 3z"/></g></g></g></svg>
+                              </td>
+                          </tr>
+                      </tbody>
+                    </table>
                   
                   <!-- END ADDON --> 
                     
@@ -1846,14 +1879,6 @@
                       </div>
                     </div>
                   </div>
-                </section>
-                <section>
-                      <table id="table" style="width: 100%; border-collapse: collapse; border-color: #094d92; border-style: solid; background-color: #f5f5f5;">
-                <tbody><tr>
-                    <th>Day</th>
-                    <th>UV rating</th> 
-                  </tr>
-            <tr><td>Tonight</td><td>2</td></tr><tr><td>Wednesday</td><td>7</td></tr><tr><td>Thursday</td><td>4</td></tr></tbody></table>
                 </section>
                 <section id="media_image-4" class="widget-5 widget widget_media_image">
                   <div class="widget-inner">
