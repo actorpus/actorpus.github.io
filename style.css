@@ -36,6 +36,19 @@ a:visited{
 a:hover{
   color:orange;
 }
+a1{
+    text-align: right;
+    margin: 10em
+}
+a1:link{
+  color: lightcoral;
+}
+a1:visited{
+  color: coral;
+}
+a1:hover{
+  color:orange;
+}
 .puzzle-overide {
     background-color: white;
     background-image: none;
