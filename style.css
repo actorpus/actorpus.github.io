@@ -2,6 +2,9 @@ body {
     background-color: #000;
     color: #fff;
     font-family: Arial, sans-serif;
+    background-image: url("background.webp");
+    background-repeat: repeat;
+    background-size: 400px;
 }
 
 .container {
