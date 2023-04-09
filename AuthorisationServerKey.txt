@@ -1,4 +1,17 @@
------BEGIN PGP PUBLIC KEY BLOCK-----
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+
+authorisation@actorp.us, used for automatic user verification.
+Signed by alex@actorp.us.
+
+- -----BEGIN PGP PUBLIC KEY BLOCK-----
+Comment: User-ID:	AuthorisationServer <authorisation@actorp.us>
+Comment: Valid from:	07/04/2023 23:49
+Comment: Type:	255-bit EdDSA (secret key available)
+Comment: Usage:	Signing, Encryption, Certifying User-IDs
+Comment: Fingerprint:	9896FF9555841BDFBA2ECF6C357D5D42236244D0
+
 
 mDMEZDCeBRYJKwYBBAHaRw8BAQdA400AZgF3elOLvjS7/GZga8XWdEqac7Ic7EAm
 EkQZiQO0LUF1dGhvcmlzYXRpb25TZXJ2ZXIgPGF1dGhvcmlzYXRpb25AYWN0b3Jw
@@ -10,4 +23,14 @@ WFHxt9rtKT0LuDgEZDCeBRIKKwYBBAGXVQEFAQEHQJ5tNjvZdt5oKCfAWj7ax/Tp
 RNAFAmQwngUCGwwACgkQNX1dQiNiRND0VgEAgYodwKI6x4hz4U0kKpZBX4OY0irf
 XoUQcM09m/0dZ64BANkCEWQm4VDODOAIHss2kh9ElZdsFaOvKNO/KxYEaBcB
 =b3M1
------END PGP PUBLIC KEY BLOCK-----
+- -----END PGP PUBLIC KEY BLOCK-----
+
+Key is also on the keys.openpgp.org key server.
+Email availible for verificaiton of email ownership.
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQR5gBsGwflbov/jEu6coesikRZV2gUCZDMXhAAKCRCcoesikRZV
+2vEFAQD3gTXmcbDW35p96zpsgs9VhDsgcLAQaS2xIgocEbHQSAEAim4fWYWoQMo/
++YffeHHqNpeMKIG5w4Nwu0xgHSiHJgQ=
+=Dswm
+-----END PGP SIGNATURE-----
