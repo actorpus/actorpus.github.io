@@ -1,0 +1,16 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+actorpus. Alive, free, and in control of actorp.us as of 17/04/2023
+
+Current link is actorpusivyviaez622ochyco35c4tnmz4a4xvk6i33tdtxfbdymtwqd.onion
+Attempting to find a link with actorpdotus*.onion
+
+Canary Expiry: 15/05/2023
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQR5gBsGwflbov/jEu6coesikRZV2gUCZD1svwAKCRCcoesikRZV
+2lZTAQCkKLraYyszfIp8BKMVPJqAggGzn+LmIKCDzY+LgZRCDAEA07mTEkF965O5
+qLM7ukCnygVdZNUysixBvEsnBtPMMQk=
+=tYz3
+-----END PGP SIGNATURE-----

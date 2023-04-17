@@ -1,72 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>actorpus</title>
-<meta name="viewport" content="width=device-width, user-scalable=no">
-<style>
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: rgb(17, 24, 39);
-}
+    <title>actorpus</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(17, 24, 39);
+        }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto auto;
-    background-color: rgb(17, 24, 39);
-    width: 100%;
-    height: 100%;
-}
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-template-rows: auto auto;
+            background-color: rgb(17, 24, 39);
+            width: 100%;
+            height: 100%;
+        }
 
-.clickable {
-    text-align: center;
-    border: 1px solid rgb(33, 47, 77);
-    border-radius: 5px;
-    margin: 5px;
-}
+        .clickable {
+            text-align: center;
+            border: 1px solid rgb(33, 47, 77);
+            border-radius: 5px;
+            margin: 5px;
+        }
 
-img {
-    width: 30%;
-    max-width: 300px;
-    transform: translateY(25vh) translateY(-50%);
-}
+        img {
+            width: 30%;
+            max-width: 300px;
+            transform: translateY(16vh) translateY(-50%);
+        }
 
-.one {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-}
+        .one {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+        }
 
-.two {
-    grid-column: 2 / 2;
-    grid-row: 1 / 2;
-}
-.three {
-    grid-column: 1 / 2;
-    grid-row: 2 / 2;
-}
+        .two {
+            grid-column: 2 / 2;
+            grid-row: 1 / 2;
+        }
 
-.four {
-    grid-column: 2 / 2;
-    grid-row: 2 / 2;
-}
-</style>
+        .three {
+            grid-column: 1 / 2;
+            grid-row: 2 / 3;
+        }
+
+        .four {
+            grid-column: 2 / 2;
+            grid-row: 2 / 3;
+        }
+
+        .five {
+            grid-column: 1 / 2;
+            grid-row: 3 /3;
+        }
+
+        .six {
+            grid-column: 2 / 2;
+            grid-row: 3 / 3;
+        }
+    </style>
 </head>
 <body>
 <div class="grid-container">
-<a href="https://www.instagram.com/actorp.us/" class="one clickable">
-<img src="content/instergram.png" alt="instergram">
-</a>
-<a href="https://www.snapchat.com/add/actorpus" class="two clickable">
-<img src="content/snapchat.png" alt="snapchat">
-</a>
-<a href="https://github.com/actorpus" class="three clickable">
-<img src="content/github.png" alt="github">
-</a>
-<a id="discord" onclick="navigator.clipboard.writeText('actorpus#7755').then(() => {alert('Username copied to clipboard'); document.location.href='https://discord.com/app'})" class="four clickable">
-<img src="content/discord.png" alt="discord">
-</a>
+    <a href="https://www.instagram.com/actorp.us/" class="one clickable">
+        <img src="content/instergram.png" alt="instergram">
+    </a>
+    <a href="https://www.snapchat.com/add/actorpus" class="two clickable">
+        <img src="content/snapchat.png" alt="snapchat">
+    </a>
+    <a href="https://github.com/actorpus" class="three clickable">
+        <img src="content/github.png" alt="github">
+    </a>
+    <a id="discord" onclick="navigator.clipboard.writeText('actorpus#7755').then(() => {alert('Username copied to clipboard'); document.location.href='https://discord.com/app'})" class="four clickable">
+        <img src="content/discord.png" alt="discord">
+    </a>
+    <a href="mailto:alex@actorp.us?body=I%20used%20your%20key%20at%20https%3A%2F%2Factorp.us%2Fkey.txt" class="five clickable">
+        <img src="content/mail.png" alt="github">
+    </a>
+    <a href="/TORproof.txt" class="six clickable">
+        <img src="content/tor.png" alt="github">
+    </a>
 </div>
 </body>
 </html>
