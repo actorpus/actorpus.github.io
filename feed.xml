@@ -6,6 +6,11 @@
         <description>If the bird stops chirping... Im probably dead.</description>
         <webMaster>alex@actorp.us</webMaster>
         <item>
+            <title>Onion Service</title>
+            <link>/</link>
+            <description>Please note the tor service is not accessible until further notice</description>
+        </item>
+        <item>
             <title>Chirp! Canary for 17/04</title>
             <link>https://actorp.us/canary/17042023.pgp.txt</link>
             <description>17/04/2023. New TOR link plus site changes</description>
