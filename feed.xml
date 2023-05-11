@@ -5,6 +5,11 @@
         <link>https://actorp.us/</link>
         <description>If the bird stops chirping... Im probably dead.</description>
         <webMaster>alex@actorp.us</webMaster>
+		<item>
+            <title>Chirp! 11/05</title>
+            <link>https://actorp.us/canary/11052023.pgp.txt</link>
+            <description>11/05/2023.</description>
+        </item>
         <item>
             <title>Onion Service</title>
             <link>/</link>
