@@ -5,7 +5,12 @@
         <link>https://actorp.us/</link>
         <description>If the bird stops chirping... Im probably dead.</description>
         <webMaster>alex@actorp.us</webMaster>
-		<item>
+	<item>
+            <title>RIP to actorp.us?</title>
+            <link>/</link>
+            <description>NEXUS... the death of all fun. Dispite legally qualifying under nexus catagory 3 (A foreign entity or organization that has a bona fide presence in the United States of America or any of its possessions or territories.) NeXUS seem to be getting fistey. Short term the backup server has been activated and should be hosting actorpus.com, an email server has also been setup for the standard alex@actorp.us domain. Updates to follow, may be in the next canary as NEXUS seem to like doing things slowly</description>
+        </item>
+	<item>
             <title>Chirp! 11/05</title>
             <link>https://actorp.us/canary/11052023.pgp.txt</link>
             <description>11/05/2023.</description>
