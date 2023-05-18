@@ -1,3 +1,6 @@
+This key is no longer in use and is only present for legacy reasons.
+Please see /keys/Personal.txt for the most up to date key.
+
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA512
 
