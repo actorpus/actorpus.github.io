@@ -2,9 +2,14 @@
 <rss version="2.0">
     <channel>
         <title>actorpus canary</title>
-        <link>https://actorp.us/</link>
+        <link>https://actorpus.com/</link>
         <description>If the bird stops chirping... Im probably dead.</description>
-        <webMaster>alex@actorp.us</webMaster>
+        <webMaster>alex@actorpus.com</webMaster>
+		<item>
+            <title>Chirp! 15/06</title>
+            <link>https://actorpus.com/canary/15062023.pgp.txt</link>
+            <description>Not much has changed</description>
+        </item>
 		<item>
             <title>New Site!</title>
             <link>https://actorpus.com/proof.txt</link>
@@ -17,7 +22,7 @@
         </item>
 		<item>
             <title>Chirp! 11/05</title>
-            <link>https://actorp.us/canary/11052023.pgp.txt</link>
+            <link>https://actorpus.com/canary/11052023.pgp.txt</link>
             <description>11/05/2023.</description>
         </item>
         <item>
@@ -27,7 +32,7 @@
         </item>
         <item>
             <title>Chirp! Canary for 17/04</title>
-            <link>https://actorp.us/canary/17042023.pgp.txt</link>
+            <link>https://actorpus.com/canary/17042023.pgp.txt</link>
             <description>17/04/2023. New TOR link plus site changes</description>
         </item>
     </channel>

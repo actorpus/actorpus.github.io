@@ -1,0 +1,18 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Jesus time flies. Second email from the guys over at Nexus or whatever, one month left of actorp.us. Someone also pointed out the old links on the RSS feed point to actorp.us/canary/... so I've fixed that. The TOR mirror site is yet to be completed, kind of forgot about it. Should be back up in the next couple of days, interesting TOR based projects to follow. 
+
+I’ve revoked the old certificates for actorp.us so don’t use that to encrypt anything from now on. I have also revoked the authorisation certificate and will regenerate and republish that once the TOR server is back up and running. Should have the user account server operational around the same time, keeping it invite only for the time being as I cannot be bothered to implement my own approval system.
+
+I have looked into storing a hash of the canary on the Monero blockchain to provide an exact publishing timestamp, that would be theoretically impossible to tamper with. The hash of the canary could be published with the tx_extra field but this was supposed to be deprecated 3 years ago and there are already problems with idiots attempting to create NFT like images using it. Thought better to steer clear of that mess, for now sticking with the BTC block hash to at least provide a minimum writing time.
+
+Latest BTC block: 0000000000000000000041fa2e33f95f8eabab2f57b951fe6434888e1c44a843
+Expiry: 15/07/2023
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQSUSXswh/67g1+ocIQ77j4yIEn9MgUCZIsE3wAKCRA77j4yIEn9
+MpWcAQDVRitIoU5zCVPK0v1rN5yyu6AbPI3e10ZVklzTaX54nAD+ONKFFEoSuC/O
+N8EnR8cv6jwaeApFBzy1Kr/xx24nXAg=
+=pH91
+-----END PGP SIGNATURE-----
