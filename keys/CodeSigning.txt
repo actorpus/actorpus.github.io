@@ -1,0 +1,20 @@
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Comment: User-ID:	Alex <code-signing@actorpus.com>
+Comment: Valid from:	18/06/2023 21:38
+Comment: Valid until:	18/06/2025 12:00
+Comment: Type:	255-bit EdDSA (secret key available)
+Comment: Usage:	Signing, Encryption, Certifying User-IDs
+Comment: Fingerprint:	EBE76E538026CF4C719761960F4E5B6D8BE704AA
+
+
+mDMEZI9rMhYJKwYBBAHaRw8BAQdAHJeTqzDCruSIC4SG1+VTgIVv5PjecyPvufR6
+e9Nsfmq0IEFsZXggPGNvZGUtc2lnbmluZ0BhY3RvcnB1cy5jb20+iJkEExYKAEEW
+IQTr525TgCbPTHGXYZYPTltti+cEqgUCZI9rMgIbAwUJA8Mw/gULCQgHAgIiAgYV
+CgkICwIEFgIDAQIeBwIXgAAKCRAPTltti+cEqv5lAQDRP5O2VjV6+ZeY75lW/CWz
+zBgrL0bow9h6mADzft7z1wEAre8ivC/uTtuEcWNzfX/EaBTfuTqknQym2i6Ie2o2
+dQi4OARkj2syEgorBgEEAZdVAQUBAQdASeVHr8zzpt6MQEp6gX75RM0kIuI7cWC1
+5zYTPMTyIToDAQgHiH4EGBYKACYWIQTr525TgCbPTHGXYZYPTltti+cEqgUCZI9r
+MgIbDAUJA8Mw/gAKCRAPTltti+cEqmycAP9sdBR6DEqVa5r1bdfEArZmYNQC83FQ
+FWcCMAOldUmUxAD/YzGiTx3p6sghFclIk6wJRBg6VXKUazVFdxMaOztIBQM=
+=6w//
+-----END PGP PUBLIC KEY BLOCK-----
