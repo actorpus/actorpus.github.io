@@ -1,0 +1,14 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Another update coming on the day the old domain expires. away until then regardless hence the short post.
+
+Latest BTC block: 00000000000000000000326ae96e9cb64c0ee6874052b4596cf4a222bd769711
+Expiry: 25/07/2023
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQSUSXswh/67g1+ocIQ77j4yIEn9MgUCZK2PSgAKCRA77j4yIEn9
+MhtUAP9HrkkMWi/i56oMLM+SmCX9wQTIAEwz0x0yuDsTPnkvrwEAyU7IrHgo6JUW
+2e8RHiJIRCGt55zKydvr4MeGngdoogc=
+=hbPG
+-----END PGP SIGNATURE-----
