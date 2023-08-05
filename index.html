@@ -1,21 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>actorpus.com</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="content/style.css">
+    <title>actorpus.com</title>
+	<style>
+* {
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+ol {
+  margin-top: 0;
+}
+
+h2 {
+	margin-bottom: 0.25em;
+	margin-top: 1em;
+}
+
+pre {
+  border: #ccc 2px solid;
+  width: max-content;
+  padding: 1em;
+  border-radius: 1em;
+  position: relative;
+}
+pre > a,
+pre > a:visited {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  padding: 0.4em 0.8em;
+  border: 2px #ccc solid;
+  border-radius: 0 1em;
+  text-decoration: none;
+  color: unset;
+  background: #eee;
+}
+pre > a::after{
+	content: "copy";
+}
+
+	</style>
 </head>
 <body>
-	<div class="container">
-		<h1>Home</h1>
-		<h3>Keys</h3>
-		<a>alex@actorpus.com  ( </a><a href="keys/Personal.txt">txt</a><a> )</a><br>
-		<a>code-signing@actorpus.com  ( </a><a href="keys/CodeSigning.txt">txt</a><a> )</a><br>
-		<br>
-		<h3>Me</h3>
-		<a>TOR proof ( </a><a href="TORproof">txt</a><a> )</a><br>
-		<a>links ( </a><a href="me">html</a><a> ) ( </a><a href="me.pgp.txt">txt</a><a> )</a><br>
-		<a>canary ( </a><a href="feed.xml">RSS</a><a> ) ( </a><a href="rss_veiwer.html">html</a><a> )</a>
-	</div>
+<h1>Keys and links</h1>
+<h2>alex@actorpus.com</h2>
+<ol>
+	<li><a href="https://actorpus.com/keys/Personal.txt">actorpus.com</a></li>
+	<li><a href="https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x94497b3087febb835fa870843bee3e322049fd32">keyserver.ubuntu.com</a></li>
+	<li><a href="https://archive.org/download/actorpus-pgp">archive.org</a></li>
+</ol>
+<h2>code-signing@actorpus.com</h2>
+<ol>
+	<li><a href="keys/CodeSigning.txt">actorpus.com</a></li>
+	<li><a href="https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xebe76e538026cf4c719761960f4e5b6d8be704aa">keyserver.ubuntu.com</a></li>
+</ol>
+<h2>links</h2>
+<ol>
+	<li>
+<pre id="proof">
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Instergram: https://www.instagram.com/actorp.us/
+SnapChat: https://www.snapchat.com/add/actorpus
+GitHub: https://github.com/actorpus
+Discord: @actorpus
+Website: https://actorpus.com
+Onion: http://actorpusivyviaez622ochyco35c4tnmz4a4xvk6i33tdtxfbdymtwqd.onion
+
+Notes:
+. Discord used to be @actorpus#7755
+. The onion service may not have 100% uptime.
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQSUSXswh/67g1+ocIQ77j4yIEn9MgUCZM41LwAKCRA77j4yIEn9
+MmeWAQCM/wbg4iRl/cNZnFNGFvMKMnF7a2/REtFiQK0VHo6zRQD/UC0w/2w0GoH4
+qVsz+OefHcXRnN+NUlwWuH3MKAZBBgg=
+=mdIL
+-----END PGP SIGNATURE-----<a href="javascript:navigator.clipboard.writeText(document.getElementById('proof').textContent);"></a>
+</pre>
+	</li>
+	<li><a href="me.html">actorpus.com</a></li>
+</ol>
+
 </body>
 </html>
